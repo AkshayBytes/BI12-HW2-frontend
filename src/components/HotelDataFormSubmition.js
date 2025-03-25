@@ -13,12 +13,12 @@ const HotelDataFormSubmition = () => {
         checkouttime: "",
         amenities: "",
         pricerange : "",
-        reservationsneeded: "",
-        parkingavailable: "",
-        wifiavailable: "",
-        poolavailable: "",
-        spaavailable: "",
-        restaurantavailable: "",
+        reservationsneeded: false,
+        parkingavailable: false,
+        wifiavailable: false,
+        poolavailable: false,
+        spaavailable: false,
+        restaurantavailable: false,
         photos: ""
 
     });
