@@ -3,6 +3,7 @@ import useFetch from "../useFetch";
 
 const HotelDataFormSubmition = () => {
     const [category, setCategory] = useState('');
+    const [pricerange, setPriceRange] = useState('')
     const [FormData, setFormData] = useState({
         location: "",
         category : "",
@@ -27,9 +28,9 @@ const HotelDataFormSubmition = () => {
 
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const {name, value, type, checked } = e.target;
         setFormData((prevState) => ({
-            ...prevState, [name]: name === "rating" ? parseInt(value) : value
+            ...prevState, [name]: type === "checkbox" ? checked : value
         }))
     }
 
@@ -69,7 +70,7 @@ const HotelDataFormSubmition = () => {
                 <input type="text" name="name" value={FormData.name} onChange={handleChange} />
                 <br/>
                 <label>Category: 
-                <select type="text" name="category"  onChange={(event)=>setCategory(event.target.value)}  >
+                <select type="text" name="category" value={FormData.category}  onChange={handleChange}  >
                     <option value="Resort">Resort</option>
                     <option value="Bed and breakfast">Bed and breakfast</option>
                     <option value="Budget Hotels">Budget Hotels</option>
@@ -110,7 +111,7 @@ const HotelDataFormSubmition = () => {
                 <input type="text" name="amenities" value={FormData.amenities} onChange={handleChange}/>
                 <br/>
                 <label>Price Range: 
-                <select type="text" name="pricerange"  onChange={(event)=>setCategory(event.target.value)}  >
+                <select type="text" name="pricerange" value={FormData.pricerange}  onChange={handleChange}  >
                     <option value={"1000 - 2500"}>1000 - 2500</option>
                     <option value={"2500 - 5000"}>2500 - 5000</option>
                     <option value={"5000 - 10000"}>5000 - 10000</option>
@@ -122,28 +123,28 @@ const HotelDataFormSubmition = () => {
                 <label >Reservations Needed :</label>
                 <br/>
                 <label for="reservationsneeded">
-                <input type="checkbox" id="reservationsneeded" value="Yes" onChange={handleChange}/>Yes
+                <input type="checkbox" id="reservationsneeded" checked={FormData.reservationsneeded} onChange={handleChange}/>Yes
                 </label>
                 <br/>
                 <label>Parking Available: </label>
                 <br/>
-                <input type="text" name="parkingavailable" value={FormData.parkingavailable} onChange={handleChange}/>
+                <input type="checkbox" name="parkingavailable" value={FormData.parkingavailable} onChange={handleChange}/>
                 <br/>
                 <label>WiFi available: </label>
                 <br/>
-                <input type="text" name="wifiavailable" value={FormData.wifiavailable} onChange={handleChange}/>
+                <input type="checkbox" name="wifiavailable" value={FormData.wifiavailable} onChange={handleChange}/>
                 <br/>
                 <label>Pool available:</label>
                 <br/>
-                <input type="text" name="poolavailable" value={FormData.poolavailable} onChange={handleChange}/>
+                <input type="checkbox" name="poolavailable" value={FormData.poolavailable} onChange={handleChange}/>
                 <br/>
                 <label>Spa Available: </label>
                 <br/>
-                <input type="text" name="spaavailable" value={FormData.spaavailable} onChange={handleChange}/>
+                <input type="checkbox" name="spaavailable" value={FormData.spaavailable} onChange={handleChange}/>
                 <br/>
                 <label>Restaurnat Available: </label>
                 <br/>
-                <input type="text" name="restaurantavailable" value={FormData.restaurantavailable} onChange={handleChange}/>
+                <input type="checkbox" name="restaurantavailable" value={FormData.restaurantavailable} onChange={handleChange}/>
                 <br/>
                 <label>Photos: </label>
                 <br/>
